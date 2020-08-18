@@ -21,7 +21,29 @@ if (typeof undefined === 'undefined') {
 ////////////////////////////////////////////////////////////
 // Default function arguments
 //////////////////////////////////////////////////////////// 
+function calculatePrice(total, tax = 0.1, tip = 0.05) {
+    return total + (total * tax) + (total * tip)
+}
+
+let price = calculatePrice(100, 0.15)
+console.log(price)
+
+price = calculatePrice(100, undefined, 0.15)
+console.log(price)
+
+function calculatePrice2({
+                             total = 0,
+                             tax = 0.1,
+                             tip = 0.05
+                         } = {}) {
+    console.log("total: " + total)
+    console.log("tax: " + tax)
+    console.log("tip: " + tip)
+    console.log(total + (total * tax) + (total * tip));
+}
 
 
-let var1 = undefined * 100;
-console.log(var1)
+calculatePrice2({tip: 0.15, total: 150})
+
+calculatePrice2()
+calculatePrice2(undefined)
