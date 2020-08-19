@@ -1,0 +1,57 @@
+////////////////////////////////////////////////////////////
+// The Spread Operator
+////////////////////////////////////////////////////////////
+const veggie = ["tomato", "cucumber", "beans"]
+const meat = ["pork", "beef", "chicken"]
+
+const menu = [...veggie, "pasta", ...meat]
+console.log(menu)
+
+////////////////////////////////////////////////////////////
+// Copy Arrays
+////////////////////////////////////////////////////////////
+const newVeggie = [].concat(veggie)
+veggie.push("peas")
+console.log(veggie)
+console.log(newVeggie)
+
+////////////////////////////////////////////////////////////
+// Spread into a funcation
+////////////////////////////////////////////////////////////
+function doStuff(x, y, z) {
+    console.log(x + y + z)
+}
+
+var args = [0, 1, 2]
+doStuff.apply(null, args)
+
+doStuff(...args)
+console.log(args)
+
+const name = ["Alberto", "Montalesi"];
+
+function greet(first, last) {
+    console.log(`Hello ${first} ${last}`);
+}
+greet(...name)
+
+////////////////////////////////////////////////////////////
+// Spread in Object Literals
+////////////////////////////////////////////////////////////
+
+let person = {
+    name : "Alberto",
+    surname: "Montalesi",
+    age: 25
+}
+let clone = {...person}
+console.log(clone)
+
+////////////////////////////////////////////////////////////
+// The Rest Parameter
+////////////////////////////////////////////////////////////
+
+const runners = ["Tom", "Paul", "Mark", "Luke"]
+const [first, second, ...losers] = runners
+console.log(...losers)
+console.log(losers)
